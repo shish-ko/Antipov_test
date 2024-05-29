@@ -1,0 +1,10 @@
+.appBtn {
+  color: white;
+  background-color: $contrast;
+  padding: 13px 16px;
+  border-radius: 8px;
+  border: none;
+  &:hover{
+    background-color: darken($color: $contrast, $amount: 2);
+  }
+}

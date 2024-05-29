@@ -1,6 +1,5 @@
 .appInput {
   display: flex;
-  gap: 4px;
   flex-direction: column;
   
   &__input {
@@ -22,8 +21,12 @@
   &__error {
     display: none;
     color: $error;
+    margin-top: 4px;
     &[data-active="true"] {
       display: block;
     }
+  }
+  &__label {
+    margin-bottom: 8px;
   }
 }

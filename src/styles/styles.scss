@@ -1,17 +1,46 @@
 @import './variables.scss';
 @import './input.scss';
 @import '/node_modules/normalize-scss/sass/normalize';
+@import './btn.scss';
 @include normalize();
 
-*{
+* {
   box-sizing: border-box;
+  margin: 0;
 }
+
+h2 {
+  font-size: 20px;
+  line-height: 22.5px;
+  font-weight: 400;
+}
+
 html {
   font-family: "Roboto", sans-serif;
   color: $black;
+  // font-size: ;
 }
+
 .app-container {
   max-width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  .auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    // align-items: center;
+    padding: 16px;
+    gap: 16px;
+    width: 500px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+  }
 }
