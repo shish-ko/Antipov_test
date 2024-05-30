@@ -1,7 +1,11 @@
 import { SubmitHandler, useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AppInput } from "src/components/UI_components/AppInput"
-import { emailValidator, passwordValidator } from "src/utils"
+import { emailValidator, passwordValidator } from "src/utils";
+import { useDispatch } from 'react-redux';
+import { API_URL } from "src/constants";
+import { setToken } from "src/appStore";
+import { IAuthRes } from "src/interfaces";
 export type TRegForm = {
   name: string,
   email: string,
@@ -14,7 +18,21 @@ export const SignIn =() => {
     handleSubmit,
     formState: { errors },
   } = useForm<TRegForm>();
-  const onSubmit: SubmitHandler<TRegForm> = (data) => console.log(data)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<TRegForm> = async ({email, password}) => {
+    const res = await fetch(API_URL+'register/', {
+      method: 'POST',
+      body: JSON.stringify({email, password}),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await res.json() as IAuthRes;
+    dispatch(setToken(data.token));
+    navigate('/')
+  }
 
   return(
     <div className="auth-container">
@@ -34,7 +52,7 @@ export const SignIn =() => {
           {...register('checkPassword', {required: 'Повторите пароль', validate: passwordValidator})}
           error={errors.checkPassword?.message}
           type="password"/>
-        <button className="appBtn">Зарегистрироваться</button>
+        <button className="appBtn auth__submit">Зарегистрироваться</button>
         <p className="auth__redirect">Уже есть аккаунт? <Link to={'/login'}>войти</Link></p>
       </form>
     </div>

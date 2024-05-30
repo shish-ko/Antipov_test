@@ -14,4 +14,4 @@ export const AppInput = forwardRef<HTMLInputElement,IAppInput>(({label, error, .
       <p className="appInput__error" data-active={!!error}>{error}</p>
     </div>
   )
-})
+});

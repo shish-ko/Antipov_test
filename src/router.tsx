@@ -1,12 +1,14 @@
 import { Route, createBrowserRouter, createRoutesFromElements, } from "react-router-dom";
 import { Default_UI } from "./components/Default_UI";
-import { SignIn } from "./pages/SingIn";
-import { LogIn } from "./pages/LogIn";
+import { SignIn } from "./pages/SingInPage";
+import { LogIn } from "./pages/LogInPage";
+import { ProtectedRoutes } from "./components/ProtectedRoutes";
+import { IndexPage, loader as indexLoader } from "./pages/IndexPage";
 
 const routeObj = createRoutesFromElements(
   <Route path="/" element={<Default_UI />}>
-    <Route element={<h1>Protected</h1>}>
-      <Route index={true} />
+    <Route element={<ProtectedRoutes />}>
+      <Route index={true} element={<IndexPage />} loader={indexLoader}/>
       <Route path="/user/:id" />
     </Route>
     <Route>

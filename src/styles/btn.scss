@@ -1,10 +1,23 @@
-.appBtn {
-  color: white;
+@mixin btnCommon {
+  color: $gray;
   background-color: $contrast;
-  padding: 13px 16px;
+  cursor: pointer;
   border-radius: 8px;
   border: none;
   &:hover{
-    background-color: darken($color: $contrast, $amount: 2);
+    background-color: darken($color: $contrast, $amount: 3);
   }
+
+}
+
+.appBtn {
+  @include btnCommon();
+  padding: 13px 16px;
+}
+
+.navBtn {
+  @include btnCommon();
+  padding: 8px 16px;
+  border: 1px solid $gray;
+
 }

@@ -1,4 +1,4 @@
-import { TRegForm } from "./pages/SingIn";
+import { TRegForm } from "./pages/SingInPage";
 
 const emailValidator = (email: string) => {
   return email
