@@ -22,6 +22,7 @@
     display: none;
     color: $error;
     margin-top: 4px;
+    font-size: 10px;
     &[data-active="true"] {
       display: block;
     }

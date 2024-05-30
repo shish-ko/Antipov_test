@@ -1,6 +1,7 @@
 import { Route, createBrowserRouter, createRoutesFromElements, } from "react-router-dom";
 import { Default_UI } from "./components/Default_UI";
 import { SignIn } from "./pages/SingIn";
+import { LogIn } from "./pages/LogIn";
 
 const routeObj = createRoutesFromElements(
   <Route path="/" element={<Default_UI />}>
@@ -10,7 +11,7 @@ const routeObj = createRoutesFromElements(
     </Route>
     <Route>
       <Route path="/sign" element={<SignIn />}/>
-      <Route path="/login" />
+      <Route path="/login" element={<LogIn />}/>
     </Route>
   </Route>
 )
