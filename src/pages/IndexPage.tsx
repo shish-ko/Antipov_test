@@ -1,25 +1,21 @@
 import { useLoaderData } from "react-router-dom";
-import { UserList } from "src/components/UserList";
-import { API_URL } from "src/constants"
+
+import { API_URL } from "constants"
 import { IUserListRes } from "src/interfaces";
+import { Header } from "~comps/Header";
+import { UserList } from "~comps/UserList";
 
 export const IndexPage = () => {
   const loaderData = useLoaderData() as IUserListRes;
 
   return (
     <>
-      <header className="header-container">
-        <div className="main-container">
-          <div className="nav">
-            <span />
-            <button className="navBtn">Выход</button>
-          </div>
-          <div className="indexHeader centerBlock">
+      <Header>
+      <div className="indexHeader centerBlock">
             <h1 className="headerTitle centerText">Наша команда</h1>
             <p className="headerSubtitle headerSubtitle_main centerText">Это опытные специалисты, хорошо разбирающиеся во всех задачах, которые ложатся на их плечи, и умеющие находить выход из любых, даже самых сложных ситуаций. </p>
           </div>
-        </div>
-      </header>
+      </Header>
       <main className="main-container userList">
         <UserList userList={loaderData.data} />
       </main>

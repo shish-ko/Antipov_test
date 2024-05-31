@@ -1,20 +1,19 @@
 import { Route, createBrowserRouter, createRoutesFromElements, } from "react-router-dom";
-import { Default_UI } from "./components/Default_UI";
+import { Default_UI } from "~comps/Default_UI";
 import { SignIn } from "./pages/SingInPage";
 import { LogIn } from "./pages/LogInPage";
-import { ProtectedRoutes } from "./components/ProtectedRoutes";
+import { ProtectedRoutes } from "~comps//ProtectedRoutes";
 import { IndexPage, loader as indexLoader } from "./pages/IndexPage";
+import { UserPage, loader as userLoader } from "./pages/UserPage";
 
 const routeObj = createRoutesFromElements(
   <Route path="/" element={<Default_UI />}>
     <Route element={<ProtectedRoutes />}>
-      <Route index={true} element={<IndexPage />} loader={indexLoader}/>
-      <Route path="/user/:id" />
+      <Route index={true} element={<IndexPage />} loader={indexLoader} />
+      <Route path="/user/:id" element={<UserPage />} loader={userLoader} />
     </Route>
-    <Route>
-      <Route path="/sign" element={<SignIn />}/>
-      <Route path="/login" element={<LogIn />}/>
-    </Route>
+    <Route path="/sign" element={<SignIn />} />
+    <Route path="/login" element={<LogIn />} />
   </Route>
 )
 

@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAppSelector } from 'src/appStore';
+import { useAppSelector } from 'appStore';
 
 export const ProtectedRoutes =()=> {
   const token = useAppSelector(s=>s.token);

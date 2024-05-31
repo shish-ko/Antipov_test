@@ -4,6 +4,7 @@
 @import './btn.scss';
 @include normalize();
 
+// common start
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,27 +19,6 @@ h1{
   margin: 0;
 }
 
-
-
-.headerTitle{
-  color: white;
-  font-size: 64px;
-  margin-bottom: 16px;
-  font-weight: 400;
-}
-
-.headerSubtitle {
-  color: $gray;
-}
-
-.centerText {
-  text-align: center;
-}
-
-.centerBlock {
-  margin: 0 auto;
-}
- 
 h2 {
   font-size: 20px;
   line-height: 22.5px;
@@ -51,11 +31,75 @@ html {
   // font-size: ;
 }
 
+.centerText {
+  text-align: center;
+}
+
+.centerBlock {
+  margin: 0 auto;
+}
+
+.main-container {
+  width: 88.888%;
+  margin: 0 auto;
+}
+
 .app-container {
   max-width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
 }
+
+// common end
+
+
+// header start
+
+.header-container {
+  background: $contrast;
+  color: white;
+  padding: 32px 0 64px;
+  margin-bottom: 49px;
+  box-shadow: 0 1px 4px 0 rgba(51, 51, 51, 0.15);
+}
+
+.headerTitle{
+  color: white;
+  font-size: 64px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.headerSubtitle {
+  color: $gray;
+}
+
+.header{
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  &__outlet {
+    flex-grow: 1;
+  }
+}
+
+.exitBtn {
+  align-self: flex-end;
+}
+
+.indexHeader {
+  max-width: 70%;
+}
+
+.userHeader {
+  display: flex;
+  align-items: center;
+}
+
+// header end 
+
+
+// auth start
 
 .auth-container {
   display: flex;
@@ -86,26 +130,10 @@ html {
   }
 }
 
-.header-container {
-  background: $contrast;
-  color: white;
-  padding: 32px 0 64px;
-  margin-bottom: 49px;
-}
+// auth end
 
-.main-container {
-  width: 88.888%;
-  margin: 0 auto;
-}
 
-.nav{
-  display: flex;
-  justify-content: space-between;
-}
-
-.indexHeader {
-  max-width: 70%;
-}
+// index page start
 
 .userList {
   display: grid;
@@ -146,3 +174,10 @@ html {
     }
   }
 }
+
+// index page end
+
+
+
+
+

@@ -1,11 +1,11 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
-import { setToken } from "src/appStore"
-import { AppInput } from "src/components/UI_components/AppInput"
-import { API_URL } from "src/constants"
-import { IAuthRes } from "src/interfaces"
-import { emailValidator } from "src/utils"
+import { setToken } from "appStore"
+import { AppInput } from "~comps/UI_components/AppInput"
+import { API_URL } from "constants"
+import { IAuthRes } from "interfaces"
+import { emailValidator } from "utils"
 type TLogInForm = {
   email: string,
   password: string,

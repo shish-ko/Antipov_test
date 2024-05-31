@@ -1,11 +1,11 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
-import { AppInput } from "src/components/UI_components/AppInput"
-import { emailValidator, passwordValidator } from "src/utils";
+import { AppInput } from "~comps/UI_components/AppInput"
+import { emailValidator, passwordValidator } from "utils";
 import { useDispatch } from 'react-redux';
-import { API_URL } from "src/constants";
-import { setToken } from "src/appStore";
-import { IAuthRes } from "src/interfaces";
+import { API_URL } from "constants";
+import { setToken } from "appStore";
+import { IAuthRes } from "interfaces";
 export type TRegForm = {
   name: string,
   email: string,
