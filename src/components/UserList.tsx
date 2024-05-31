@@ -6,6 +6,6 @@ interface IUserListProps {
 }
 
 export const UserList:React.FC<IUserListProps> =({userList})=> {
-  return userList.map(user=><UserCard {...user}/>
+  return userList.map(user=><UserCard {...user} key={user.id}/>
   )
 }
