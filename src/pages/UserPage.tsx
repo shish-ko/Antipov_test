@@ -5,7 +5,7 @@ import { Header } from "~comps/Header";
 import EmailIcon from '~assets/email.svg?react'
 import PhoneIcon from '~assets/phone.svg?react'
 import EditIcon from '~assets/edit.svg';
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export const UserPage = () => {
   const { first_name, last_name, avatar, email } = useLoaderData() as IUserData;
@@ -33,7 +33,6 @@ export const UserPage = () => {
               <label htmlFor="upload-photo" className="photoBlock__editIcon">
                 <img src={EditIcon} alt="edit profile photo"  />
               </label>
-              {/* <input type="file" name="photo" id="upload-photo" /> */}
               <input type='file' name="photo" accept="image/*" id="upload-photo" className="photoBlock__filePicker" onChange={uploadImage}/>
             </div>
           </div>

@@ -12,7 +12,7 @@ export type TRegForm = {
   password: string,
   checkPassword: string,
 }
-export const SignIn =() => {
+export const SignUp =() => {
   const {
     register,
     handleSubmit,
@@ -29,9 +29,13 @@ export const SignIn =() => {
         "Content-Type": "application/json"
       }
     });
-    const data = await res.json() as IAuthRes;
-    dispatch(setToken(data.token));
-    navigate('/')
+    if(res.ok) {
+      const data = await res.json() as IAuthRes;
+      dispatch(setToken(data.token));
+      navigate('/');
+    } else {
+      alert('Неверный e-mail. Попробуйте eve.holt@reqres.in')
+    }
   }
 
   return(

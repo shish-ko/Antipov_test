@@ -27,9 +27,13 @@ export const LogIn=() => {
         "Content-Type": "application/json"
       }
     });
-    const data = await res.json() as IAuthRes;
-    dispatch(setToken(data.token));
-    navigate('/')
+    if(res.ok) {
+      const data = await res.json() as IAuthRes;
+      dispatch(setToken(data.token));
+      navigate('/');
+    } else {
+      alert('Неверный e-mail. Попробуйте eve.holt@reqres.in')
+    }
   }
   return(
     <div className="auth-container">

@@ -13,7 +13,7 @@ export const IndexPage = () => {
   const [page, setPage] = useState(1);
 
   const loadUsers = async () => {
-    const newUsers = await loader(page+1);
+    const newUsers = await loadPage(page+1);
     setUsers([...users, ...newUsers.data]);
     setPage(page + 1);
   }
@@ -42,8 +42,13 @@ export const IndexPage = () => {
   )
 }
 
-export async function loader(page = 1) {
+async function loadPage(page: number) {
   const res = await fetch(API_URL + `users?page=${page}`);
+  const data = await res.json() as IUserListRes;
+  return data
+}
+export async function loader() {
+  const res = await fetch(API_URL + `users?page=1`);
   const data = await res.json() as IUserListRes;
   return data
 }

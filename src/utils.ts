@@ -1,4 +1,4 @@
-import { TRegForm } from "./pages/SingInPage";
+import { TRegForm } from "./pages/SingUpPage";
 import { useState, useEffect } from 'react';
 
 const emailValidator = (email: string) => {
