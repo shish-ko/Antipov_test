@@ -15,6 +15,6 @@ const routeObj = createRoutesFromElements(
     <Route path="/sign" element={<SignUp />} />
     <Route path="/login" element={<LogIn />} />
   </Route>
-)
+);
 
 export const router = createBrowserRouter(routeObj);

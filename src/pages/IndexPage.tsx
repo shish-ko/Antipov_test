@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
-
-import { API_URL } from "constants"
-import { IUserListRes } from "src/interfaces";
+import { API_URL } from "constants";
+import { IUserListRes } from "interfaces";
 import { Header } from "~comps/Header";
 import { UserList } from "~comps/UserList";
 import { useState } from "react";
@@ -9,14 +8,14 @@ import { IUserData } from "interfaces";
 
 export const IndexPage = () => {
   const loaderData = useLoaderData() as IUserListRes;
-  const [users, setUsers] = useState<IUserData[]>(loaderData.data)
+  const [users, setUsers] = useState<IUserData[]>(loaderData.data);
   const [page, setPage] = useState(1);
 
   const loadUsers = async () => {
     const newUsers = await loadPage(page+1);
     setUsers([...users, ...newUsers.data]);
     setPage(page + 1);
-  }
+  };
 
   return (
     <>
@@ -39,16 +38,16 @@ export const IndexPage = () => {
         </button>
       </main>
     </>
-  )
-}
+  );
+};
 
 async function loadPage(page: number) {
   const res = await fetch(API_URL + `users?page=${page}`);
   const data = await res.json() as IUserListRes;
-  return data
+  return data;
 }
 export async function loader() {
   const res = await fetch(API_URL + `users?page=1`);
   const data = await res.json() as IUserListRes;
-  return data
+  return data;
 }

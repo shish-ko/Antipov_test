@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import { Like } from "./Like"
+import { Link } from "react-router-dom";
+import { Like } from "./Like";
 
 interface IUserCardProps {
   id: number,
@@ -15,5 +15,5 @@ export const UserCard: React.FC<IUserCardProps> = ({id, first_name, last_name, a
       <p className="userCard__name">{first_name} {last_name}</p>
       <Like id={id} />
     </Link>
-  )
-}
+  );
+};

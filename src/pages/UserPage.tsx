@@ -1,9 +1,9 @@
-import { LoaderFunctionArgs, useLoaderData } from "react-router-dom"
-import { API_URL } from "constants"
-import { IUserData } from "interfaces"
+import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
+import { API_URL } from "constants";
+import { IUserData } from "interfaces";
 import { Header } from "~comps/Header";
-import EmailIcon from '~assets/email.svg?react'
-import PhoneIcon from '~assets/phone.svg?react'
+import EmailIcon from '~assets/email.svg?react';
+import PhoneIcon from '~assets/phone.svg?react';
 import EditIcon from '~assets/edit.svg';
 import { ChangeEvent, useState } from "react";
 
@@ -20,7 +20,7 @@ export const UserPage = () => {
     if(file) {
       reader.readAsDataURL(file);
     }
-  }
+  };
 
   return (
     <>
@@ -68,11 +68,11 @@ export const UserPage = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const res = await fetch(API_URL + `users/${params.id}`);
   const { data } = await res.json() as { data: IUserData };
   return data;
-}
+};

@@ -18,4 +18,4 @@ interface IUserListRes {
   data: IUserData[]
 }
 
-export type { IAuthRes, IUserListRes, IUserData }
+export type { IAuthRes, IUserListRes, IUserData };

@@ -7,5 +7,5 @@ export const ProtectedRoutes =()=> {
    token 
     ? <Outlet/>
     : <Navigate to={'/login'} />
-  )
-}
+  );
+};

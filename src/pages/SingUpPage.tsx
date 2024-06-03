@@ -1,6 +1,6 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import { Link, useNavigate } from "react-router-dom"
-import { AppInput } from "~comps/UI_components/AppInput"
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { AppInput } from "~comps/UI_components/AppInput";
 import { emailValidator, passwordValidator } from "utils";
 import { useDispatch } from 'react-redux';
 import { API_URL } from "constants";
@@ -34,9 +34,9 @@ export const SignUp =() => {
       dispatch(setToken(data.token));
       navigate('/');
     } else {
-      alert('Неверный e-mail. Попробуйте eve.holt@reqres.in')
+      alert('Неверный e-mail. Попробуйте eve.holt@reqres.in');
     }
-  }
+  };
 
   return(
     <div className="auth-container">
@@ -60,5 +60,5 @@ export const SignUp =() => {
         <p className="auth__redirect">Уже есть аккаунт? <Link to={'/login'} className="auth__redirectLink">войти</Link></p>
       </form>
     </div>
-  )
-}
+  );
+};

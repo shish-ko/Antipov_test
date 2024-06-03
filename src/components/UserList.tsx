@@ -1,5 +1,5 @@
-import { IUserData } from "src/interfaces"
-import { UserCard } from "./UserCard"
+import { IUserData } from "interfaces";
+import { UserCard } from "./UserCard";
 
 interface IUserListProps {
   userList: IUserData[]
@@ -7,5 +7,5 @@ interface IUserListProps {
 
 export const UserList:React.FC<IUserListProps> =({userList})=> {
   return userList.map(user=><UserCard {...user} key={user.id}/>
-  )
-}
+  );
+};

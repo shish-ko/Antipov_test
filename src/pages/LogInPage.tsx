@@ -1,11 +1,11 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
-import { setToken } from "appStore"
-import { AppInput } from "~comps/UI_components/AppInput"
-import { API_URL } from "constants"
-import { IAuthRes } from "interfaces"
-import { emailValidator } from "utils"
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { setToken } from "appStore";
+import { AppInput } from "~comps/UI_components/AppInput";
+import { API_URL } from "constants";
+import { IAuthRes } from "interfaces";
+import { emailValidator } from "utils";
 type TLogInForm = {
   email: string,
   password: string,
@@ -32,9 +32,9 @@ export const LogIn=() => {
       dispatch(setToken(data.token));
       navigate('/');
     } else {
-      alert('Неверный e-mail. Попробуйте eve.holt@reqres.in')
+      alert('Неверный e-mail. Попробуйте eve.holt@reqres.in');
     }
-  }
+  };
   return(
     <div className="auth-container">
       <form className="auth" onSubmit={handleSubmit(onSubmit)}>
@@ -50,5 +50,5 @@ export const LogIn=() => {
         <p className="auth__redirect">Нет аккаунта? <Link to={'/sign'} className="auth__redirectLink">зарегистрироваться</Link></p>
       </form>
     </div>
-  )
-}
+  );
+};

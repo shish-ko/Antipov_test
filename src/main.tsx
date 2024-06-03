@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import '~styles/styles.scss'
-import { RouterProvider } from 'react-router-dom'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import '~styles/styles.scss';
+import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { router } from './router'
+import { router } from './router';
 import { store } from './appStore';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -12,4 +12,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
-)
+);

@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, forwardRef } from "react"
+import { InputHTMLAttributes, forwardRef } from "react";
 
 interface IAppInput extends InputHTMLAttributes<HTMLInputElement> {
   label?: string,
@@ -13,5 +13,5 @@ export const AppInput = forwardRef<HTMLInputElement,IAppInput>(({label, error, .
       <input className="appInput__input" data-error={error} {...rest} ref={ref}></input>
       <p className="appInput__error" data-active={!!error}>{error}</p>
     </div>
-  )
+  );
 });
