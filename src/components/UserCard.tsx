@@ -11,7 +11,7 @@ interface IUserCardProps {
 export const UserCard: React.FC<IUserCardProps> = ({id, first_name, last_name, avatar}) => {
   return (
     <Link to={`/user/${id}`} className="userCard">
-      <img src={avatar} className="userCard__avatar"/>
+      <img src={avatar} className="userCard__avatar" alt="user picture"/>
       <p className="userCard__name">{first_name} {last_name}</p>
       <Like id={id} />
     </Link>

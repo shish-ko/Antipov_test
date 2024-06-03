@@ -53,7 +53,7 @@ export const SignIn =() => {
           error={errors.checkPassword?.message}
           type="password"/>
         <button className="appBtn auth__submit">Зарегистрироваться</button>
-        <p className="auth__redirect">Уже есть аккаунт? <Link to={'/login'}>войти</Link></p>
+        <p className="auth__redirect">Уже есть аккаунт? <Link to={'/login'} className="auth__redirectLink">войти</Link></p>
       </form>
     </div>
   )

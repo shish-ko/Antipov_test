@@ -10,12 +10,12 @@
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 
-h1{
+h1 {
   margin: 0;
 }
 
@@ -42,6 +42,10 @@ html {
 .main-container {
   width: 88.888%;
   margin: 0 auto;
+
+  @media screen and (max-width: $medium) {
+    width: 95%;
+  }
 }
 
 .app-container {
@@ -63,23 +67,41 @@ html {
   box-shadow: 0 1px 4px 0 rgba(51, 51, 51, 0.15);
 }
 
-.headerTitle{
+.headerTitle {
   color: white;
   font-size: 64px;
   margin-bottom: 16px;
   font-weight: 400;
+
+  @media screen and (max-width: $medium) {
+    font-size: 36px;
+  }
 }
 
 .headerSubtitle {
   color: $gray;
 }
 
-.header{
+.header {
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  justify-content: space-between;
+
   &__outlet {
     flex-grow: 1;
+
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+  }
+
+  &__smallOutlet {
+    display: none;
+
+    @media screen and (max-width: $small) {
+      display: block;
+    }
   }
 }
 
@@ -87,14 +109,7 @@ html {
   align-self: flex-end;
 }
 
-.indexHeader {
-  max-width: 70%;
-}
 
-.userHeader {
-  display: flex;
-  align-items: center;
-}
 
 // header end 
 
@@ -118,49 +133,92 @@ html {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
 
-    .auth__redirect {
+    @media screen and (max-width: $medium) {
+      max-width: 95%;
+    }
+
+    &__redirect {
       text-align: end;
       color: $gray_contrast;
       font-size: 12px;
     }
 
-    .auth__submit {
+    &__submit {
       margin-top: 24px;
+    }
+
+    &__redirectLink {
+      color: $contrast;
     }
   }
 }
 
 // auth end
 
-
 // index page start
+
+.indexHeader {
+  max-width: 70%;
+
+  @media screen and (max-width: $large) {
+    max-width: inherit;
+  }
+}
 
 .userList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  // flex-wrap: wrap;
   row-gap: 16px;
   justify-content: space-between;
-  // row-gap: 16px;
+  gap: 16px;
 
+  @media screen and (max-width: $large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: $medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: $small) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__load {
+    display: block;
+    margin: 56px auto;
+    border: 1px solid #151317;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: white;
+    cursor: pointer;
+
+    &:disabled {
+      color: $gray_contrast;
+      border-color: $gray;
+    }
+  }
 }
 
 .userCard {
   border: 1px solid $gray;
   border-radius: 10px;
   box-shadow: 0 1px 4px 0 rgba(51, 51, 51, 0.15);
-  width: 305px;
   padding: 36px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+
   &:hover {
     border-color: $black;
   }
 
   &__avatar {
     border-radius: 50%;
+    width: 124px;
+    height: 124px;
+    object-fit: cover;
   }
 
   &__like {
@@ -169,6 +227,7 @@ html {
     border-radius: 4px;
     align-self: flex-end;
     transition: all linear .1s;
+
     &:hover {
       transform: scale(1.2);
     }
@@ -177,7 +236,109 @@ html {
 
 // index page end
 
+// user page start 
+.userContainer {
+  margin-left: 109px;
+
+  @media screen and (max-width: $medium) {
+    margin-left: 0;
+  }
+}
+
+.userHeader {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @media screen and (max-width: $medium) {
+    flex-direction: column-reverse;
+  }
+
+  .photoBlock {
+    position: relative;
+    
+    &__img {
+      width: 187px;
+      height: 187px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &__edit {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid $contrast;
+      bottom: 0;
+      right: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      width: 50px;
+      height: 50px;
+      background-color: rgba($color: $gray, $alpha: 0.7);
+      cursor: pointer;
+    }
+    
+    &__editIcon{
+      width: 60%;
+      cursor: pointer;
+    }
+    
+    &__filePicker {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+    }
+  }
 
 
 
 
+
+
+
+  &__occupation {
+    font-size: 32px;
+
+    @media screen and (max-width: $medium) {
+      text-align: center;
+    }
+  }
+}
+
+.user {
+  display: flex;
+  gap: 129px;
+
+  @media screen and (max-width: $large) {
+    gap: 40px;
+  }
+
+  @media screen and (max-width: $medium) {
+    flex-direction: column-reverse;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 630px;
+  }
+
+  &__contact {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// user page end

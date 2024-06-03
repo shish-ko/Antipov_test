@@ -1,4 +1,5 @@
 import { TRegForm } from "./pages/SingInPage";
+import { useState, useEffect } from 'react';
 
 const emailValidator = (email: string) => {
   return email
@@ -11,4 +12,30 @@ const emailValidator = (email: string) => {
 const passwordValidator = (checkPassword: string, formValues: TRegForm) => {
   return checkPassword === formValues.password || 'Пароли не совпадают';
 }
-export {emailValidator, passwordValidator};
+
+
+const useScreenSize = () => {
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return screenSize;
+};
+
+export {emailValidator, passwordValidator, useScreenSize};
